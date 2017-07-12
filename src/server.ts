@@ -29,7 +29,7 @@ export class Server {
 
         // CONFIG mongo database
         (<any>mongoose).Promise = global.Promise;
-        mongoose.connect('mongodb://localhost:1337/vittal');
+        mongoose.connect('mongodb://192.168.1.200:1337/vittal');
         console.log("successfully connected to MONGODB");
     }
 
