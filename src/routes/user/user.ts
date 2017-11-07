@@ -26,6 +26,7 @@ class UserRouter {
         this.router.post('/', this.fetchUserById);
         this.router.post('/signup', this.signup);
         this.router.post('/login', this.login);
+        this.router.delete('/deleteUser', this.deleteUserById);
     }
 
     /**
@@ -113,6 +114,19 @@ class UserRouter {
         }).select('name email user_name').exec((err, user) => {
             res.json(user);
         });
+    }
+
+    /**
+     * Delete user
+    */
+    // deleteUserById.findByIdAndRemove(req: Request, res: Response): void {
+
+    // }
+    deleteUserById(req: Request, res: Response): void {
+        console.log(req);
+        User.findOneAndRemove({ user_name: req.body.user_name }, (err) => {
+            console.log(err);
+        })
     }
 }
 
